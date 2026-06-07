@@ -1,0 +1,32 @@
+{
+  "name": "extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build && node scripts/copyManifest.mjs && node ../scripts/check-extension-build.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "clsx": "^2.1.1",
+    "idb": "^8.0.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.25",
+    "@types/chrome": "^0.0.268",
+    "@types/mozilla-readability": "^0.2.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0"
+  }
+}

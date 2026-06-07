@@ -1,0 +1,10 @@
+node_modules/
+dist/
+extension/dist/
+server/dist/
+.env
+.DS_Store
+npm-debug.log*
+tabstash-ai-chrome.zip
+.playwright-mcp/
+tabstash-sidepanel-check.png
