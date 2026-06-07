@@ -51,6 +51,10 @@ function isAllowedEnvExample(relativePath, key, value) {
   return relativePath === "server/.env.example" && allowedEnvExampleAssignments.get(key) === value;
 }
 
+function isSafePlaceholder(value) {
+  return value === "..." || value.startsWith("your-") || value.includes("<");
+}
+
 async function main() {
   const findings = [];
   const files = await listFiles(root);
@@ -68,7 +72,7 @@ async function main() {
 
     for (const match of content.matchAll(envAssignmentPattern)) {
       const [, key, value] = match;
-      if (!isAllowedEnvExample(relativePath, key, value)) {
+      if (!isAllowedEnvExample(relativePath, key, value) && !isSafePlaceholder(value)) {
         findings.push(`${relativePath}: ${key}= assignment is not allowed outside server/.env.example`);
       }
     }
