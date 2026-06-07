@@ -10,6 +10,8 @@
     "check:extension-dist": "node scripts/check-extension-build.mjs",
     "scan:secrets": "node scripts/scan-secrets.mjs",
     "release:chrome": "npm run build --workspace extension && node scripts/release-chrome.mjs",
+    "build:server": "npm run build --workspace server",
+    "start": "npm run start --workspace server",
     "dev:extension": "npm --workspace extension run dev",
     "dev:server": "npm --workspace server run dev",
     "build": "npm --workspaces run build",

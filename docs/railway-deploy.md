@@ -8,8 +8,22 @@ Railway should deploy only the backend API service. The Chrome extension is buil
 
 ## Root Directory
 
+Recommended Railway setup:
+
 ```text
 server
+```
+
+This repository also includes a root `railway.json` fallback for monorepo deployments. If Railway is deploying from the repository root instead of `server`, it should use:
+
+```bash
+npm install && npm run build --workspace server
+```
+
+and:
+
+```bash
+npm run start --workspace server
 ```
 
 ## Build Command
