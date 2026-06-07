@@ -73,6 +73,14 @@ Expected response:
 {"ok":true}
 ```
 
+## Privacy Policy
+
+The Railway backend serves the Chrome Web Store privacy policy at:
+
+```text
+https://server-production-55b5.up.railway.app/privacy.html
+```
+
 ## Local Production Simulation
 
 From the `server` directory:

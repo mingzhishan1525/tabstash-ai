@@ -34,7 +34,7 @@ Production URL required before Chrome Web Store submission.
 Example:
 
 ```text
-https://yourdomain.com/privacy.html
+https://server-production-55b5.up.railway.app/privacy.html
 ```
 
 This MVP contains:

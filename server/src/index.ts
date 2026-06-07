@@ -4,6 +4,7 @@ import Fastify from "fastify";
 import { analyzeRoutes } from "./routes/analyze.js";
 import { analyticsRoutes } from "./routes/analytics.js";
 import { notionRoutes } from "./routes/notion.js";
+import { privacyRoutes } from "./routes/privacy.js";
 
 const app = Fastify({
   logger: true
@@ -15,6 +16,7 @@ await app.register(cors, {
 });
 
 app.get("/health", async () => ({ ok: true }));
+await app.register(privacyRoutes);
 await app.register(analyzeRoutes);
 await app.register(analyticsRoutes);
 await app.register(notionRoutes);
