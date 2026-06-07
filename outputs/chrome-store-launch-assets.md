@@ -51,7 +51,7 @@ codexgpt@126.com
 
 Production URL required before Chrome Web Store submission.
 
-Example: https://yourdomain.com/privacy.html
+Example: [production privacy policy URL]
 
 ## Screenshot Copy Scripts
 
