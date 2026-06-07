@@ -8,6 +8,7 @@
     "acceptance": "node scripts/acceptance-test.mjs",
     "validate:real": "npm run build --workspace server && node scripts/real-world-validation.mjs",
     "check:extension-dist": "node scripts/check-extension-build.mjs",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
     "release:chrome": "npm run build --workspace extension && node scripts/release-chrome.mjs",
     "dev:extension": "npm --workspace extension run dev",
     "dev:server": "npm --workspace server run dev",

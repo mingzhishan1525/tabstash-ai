@@ -2,19 +2,57 @@
 
 Close tabs without losing ideas. Save now. Organize later.
 
-Privacy Policy: /privacy.html
+## Current Status
+
+Beta / Feature Freeze
+
+## Current Beta Scope
+
+- Chrome MV3 Side Panel
+- Stash Tab
+- All Tabs
+- Readability extraction
+- AI summary with DeepSeek via backend
+- Local IndexedDB Inbox
+- Notion sync
+- Beta analytics
+- No data loss validation
+
+## Not included in current Beta
+
+- Payment
+- OAuth
+- Obsidian integration
+- Team features
+- Mobile app
+- AI search
+
+## Privacy Policy
+
+Production URL required before Chrome Web Store submission.
+
+Example:
+
+```text
+https://yourdomain.com/privacy.html
+```
 
 This MVP contains:
 
 - `extension/`: Manifest V3 Chrome Extension with Side Panel, React, TypeScript, Tailwind CSS, IndexedDB, Readability extraction, free/pro gates.
 - `server/`: Fastify TypeScript API with OpenAI-compatible AI analysis, Zod validation, and Notion page creation.
 
-Obsidian is supported as a lightweight local export path:
+## Planned / Not included in current Beta
 
-- Download any stashed item as Markdown.
-- Open an item through `obsidian://new` after setting the vault name and optional folder in extension Settings.
-- Select multiple inbox items for batch Markdown export, batch Obsidian open, or Pro-gated batch Notion archive.
-- Retry AI analysis from an item card when parsing or API calls fail.
+Obsidian support is planned for a future version. The current Beta focuses on:
+
+- Tab stashing
+- AI summaries
+- Local Inbox
+- Notion sync
+- No-data-loss workflow
+
+Do not claim Obsidian, Markdown export, OAuth, payment, or advanced AI search support unless the feature is actually implemented and verified.
 
 Stashing now persists each item to IndexedDB and verifies it can be read back before closing the original tab. Restoring an item opens the original URL and removes that item from the inbox.
 Each inbox card shows AI Summary, AI Tags, and a Status Flow timeline that records pending, processing, done, and failed transitions.
@@ -35,25 +73,19 @@ Load `extension/dist` in Chrome:
 3. Load unpacked
 4. Select `extension/dist`
 
-The extension expects the API at `http://localhost:8787` by default. You can change it in the Side Panel settings.
+The development extension expects the API at `http://localhost:8787` by default. You can change it in the Side Panel settings.
+
+Chrome Store production builds must use an HTTPS `API_BASE_URL`.
+
+Production extension builds must not contain `localhost`. The release script checks for `localhost`, `sk-`, `secret_`, and `ntn_` in `extension/dist` and fails the build if any are found.
 
 ## Backend env
 
-Use either OpenAI or DeepSeek:
+The current Beta uses DeepSeek through the backend. Configure these values in `server/.env` using `server/.env.example` as the template:
 
-```bash
-AI_PROVIDER=openai
-OPENAI_API_KEY=your-openai-api-key
-OPENAI_MODEL=gpt-4o-mini
-```
-
-or:
-
-```bash
-AI_PROVIDER=deepseek
-DEEPSEEK_API_KEY=your-deepseek-api-key
-DEEPSEEK_MODEL=deepseek-chat
-```
+- `AI_PROVIDER`
+- `DEEPSEEK_API_KEY`
+- `DEEPSEEK_MODEL`
 
 Notion credentials are entered inside the extension settings and sent only when creating a page.
 After credentials are configured, the Side Panel shows a Notion Sync card with synced/ready counts and a one-click sync for all analyzed unsynced items.

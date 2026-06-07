@@ -49,7 +49,9 @@ codexgpt@126.com
 
 ### Privacy Policy
 
-/privacy.html
+Production URL required before Chrome Web Store submission.
+
+Example: https://yourdomain.com/privacy.html
 
 ## Screenshot Copy Scripts
 

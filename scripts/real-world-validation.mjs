@@ -264,13 +264,11 @@ async function main() {
       "",
       "Create `server/.env` or export these values before running:",
       "",
-      "```bash",
-      "AI_PROVIDER=deepseek",
-      "DEEPSEEK_API_KEY=your-deepseek-api-key",
-      "DEEPSEEK_MODEL=deepseek-chat",
-      "NOTION_TOKEN=your-notion-integration-token",
-      "NOTION_DATABASE_ID=...",
-      "```"
+      "- AI_PROVIDER",
+      "- DEEPSEEK_API_KEY",
+      "- DEEPSEEK_MODEL",
+      "- NOTION_TOKEN",
+      "- NOTION_DATABASE_ID"
     ].join("\n");
     await writeFile(REPORT_PATH, report);
     console.log(report);
